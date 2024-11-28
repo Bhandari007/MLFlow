@@ -46,7 +46,7 @@ if __name__ == "__main__":
     l1_ratio = args.l1_ratio
 
 
-    mlflow.set_tracking_uri("mytracks")
+    mlflow.set_tracking_uri("")
     print("The tracking uri is:", mlflow.get_tracking_uri())
 
     # mlflow.create_experiment("experiment_A")
@@ -71,9 +71,12 @@ if __name__ == "__main__":
         print("  MAE: %s" % mae)
         print("  R2: %s" % r2)
 
+
         mlflow.log_param("alpha", alpha)
         mlflow.log_param("l1_ratio", l1_ratio)
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("mae", mae)
         mlflow.log_metric("r2", r2)
         mlflow.sklearn.log_model(lr, "mymodelB")
+        mlflow.log_artifact("red-wine-quality.csv")
+
