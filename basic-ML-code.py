@@ -44,6 +44,8 @@ if __name__ == "__main__":
 
     alpha = args.alpha
     l1_ratio = args.l1_ratio
+    mlflow.set_tracking_uri("mytracks")
+    print("The tracking uri is:", mlflow.get_tracking_uri())
     exp = mlflow.set_experiment("experiment_1")
     
     with mlflow.start_run(experiment_id=exp.experiment_id):
